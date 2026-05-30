@@ -1,0 +1,57 @@
+Signal Processing and Machine Learning Overview
+================================================
+
+This document provides an overview of key concepts in signal processing
+and their intersection with machine learning techniques.
+
+## Fast Fourier Transform (FFT)
+
+The FFT is an efficient algorithm for computing the Discrete Fourier
+Transform (DFT) of a signal. It decomposes a signal from the time domain
+into its constituent frequencies, enabling frequency analysis.
+
+Preprocessing steps commonly used before FFT:
+1. Windowing: Apply a window function (Hann, Hamming, Blackman) to reduce
+   spectral leakage caused by the finite observation window.
+2. Zero-padding: Extend the signal length to a power of 2 for efficiency
+   and to increase frequency resolution.
+3. Normalisation: Scale the signal to unit RMS amplitude.
+
+## Wavelet Transform
+
+Wavelets provide time-frequency localisation superior to the Fourier
+transform for non-stationary signals. The Continuous Wavelet Transform
+(CWT) measures similarity between a signal and scaled/translated versions
+of a mother wavelet.
+
+Common mother wavelets: Morlet, Daubechies, Haar, Mexican Hat.
+
+Applications include denoising, compression, and feature extraction for
+classification tasks.
+
+## Neural Networks for Signal Classification
+
+Convolutional Neural Networks (CNNs) can be applied directly to
+spectrogram images derived from FFT or wavelet analysis. The preprocessing
+pipeline typically involves:
+1. Compute short-time Fourier transform (STFT) or CWT
+2. Convert to mel-scale or log-scale spectrogram
+3. Normalise to zero mean and unit variance
+4. Augment with time/frequency masking (SpecAugment)
+
+Recurrent architectures such as LSTM and GRU are effective for sequential
+signal data where temporal ordering matters.
+
+## Embeddings and Similarity Search
+
+Sentence-transformers produce dense vector embeddings that capture
+semantic meaning. These can be used for similarity search over large
+document collections using approximate nearest-neighbour indices such
+as FAISS (Facebook AI Similarity Search).
+
+Typical retrieval-augmented generation (RAG) pipeline:
+1. Chunk documents into ~500 token segments with overlap
+2. Embed each chunk using a sentence-transformer model
+3. Store embeddings in a FAISS index
+4. At query time, embed the question and retrieve top-k chunks
+5. Pass chunks + question to an LLM for synthesis

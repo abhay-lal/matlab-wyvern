@@ -1,0 +1,68 @@
+# ─── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+.venv/
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+
+# ─── Environment / Secrets ────────────────────────────────────────────────────
+.env
+*.env
+.env.*
+!server/.env.example
+
+# ─── MATLAB ───────────────────────────────────────────────────────────────────
+*.asv
+*.mex*
+*.mexw64
+*.mexmaci64
+*.mexmaca64
+*.mlx~
+*.slx~
+*.mdl~
+*.bak
+slprj/
+codegen/
+
+# Built toolbox package — generated artifact, not source
+*.mltbx
+
+# ─── Server runtime ───────────────────────────────────────────────────────────
+server/server.log
+server/.pid
+server/faiss_index/
+server/uploads/
+
+# ─── OS ───────────────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ─── IDE ──────────────────────────────────────────────────────────────────────
+.vscode/
+.cursor/
+*.code-workspace
+.idea/
+*.sublime-project
+*.sublime-workspace
