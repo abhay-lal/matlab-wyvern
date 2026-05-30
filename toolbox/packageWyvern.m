@@ -22,8 +22,8 @@ function packageWyvern()
         'Wyvern');                           % toolbox name / identifier
 
     opts.ToolboxName            = 'Wyvern — MATLAB LLM Agent Toolbox';
-    opts.ToolboxVersion         = '0.1.0';
-    opts.AuthorName             = 'Wyvern Contributors';
+    opts.ToolboxVersion         = '1.0.0';
+    opts.AuthorName             = 'Abhay Lal';
     opts.AuthorEmail            = '';
     opts.AuthorCompany          = '';
     opts.Summary                = ['Transparent access to LangChain, LangGraph, ' ...
