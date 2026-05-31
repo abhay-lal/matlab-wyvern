@@ -41,7 +41,7 @@ slprj/
 codegen/
 
 # Built toolbox package — generated artifact, not source
-*.mltbx
+# *.mltbx  # tracked: Wyvern.mltbx is the release artifact
 
 # ─── Server runtime ───────────────────────────────────────────────────────────
 server/server.log
