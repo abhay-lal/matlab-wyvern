@@ -41,7 +41,9 @@ async def load_docs(body: RagLoadRequest, request: Request) -> RagLoadResponse:
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
     except Exception as exc:
-        logger.exception("Failed to load documents for collection '%s'", body.collection_id)
+        logger.exception(
+            "Failed to load documents for collection '%s'", body.collection_id
+        )
         raise HTTPException(status_code=500, detail=str(exc)) from exc
     return RagLoadResponse(
         collection_id=body.collection_id,

@@ -25,7 +25,9 @@ class HFManager:
             logger.info("Model '%s' already loaded — skipping.", model_id)
             return
 
-        logger.info("Loading HF model '%s' for task '%s' on %s...", model_id, task, device)
+        logger.info(
+            "Loading HF model '%s' for task '%s' on %s...", model_id, task, device
+        )
 
         if task == "feature-extraction":
             self._load_sentence_transformer(model_id, device)
@@ -107,7 +109,10 @@ class HFManager:
 
     def cleanup(self) -> None:
         """Release all loaded models."""
-        logger.info("Releasing %d HF models.", len(self._pipelines) + len(self._sentence_transformers))
+        logger.info(
+            "Releasing %d HF models.",
+            len(self._pipelines) + len(self._sentence_transformers),
+        )
         self._pipelines.clear()
         self._sentence_transformers.clear()
 
@@ -131,4 +136,6 @@ class HFManager:
     def _load_sentence_transformer(self, model_id: str, device: str) -> None:
         from sentence_transformers import SentenceTransformer
 
-        self._sentence_transformers[model_id] = SentenceTransformer(model_id, device=device)
+        self._sentence_transformers[model_id] = SentenceTransformer(
+            model_id, device=device
+        )

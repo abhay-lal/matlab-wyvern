@@ -8,9 +8,16 @@ from pydantic import BaseModel, Field
 
 
 class HFLoadRequest(BaseModel):
-    model_id: str = Field(..., description="HuggingFace model identifier, e.g. 'all-MiniLM-L6-v2'")
-    task: str = Field(..., description="Pipeline task, e.g. 'feature-extraction', 'text-generation', 'zero-shot-classification'")
-    device: Literal["cpu", "cuda", "auto"] = Field(default="cpu", description="Device to load the model on")
+    model_id: str = Field(
+        ..., description="HuggingFace model identifier, e.g. 'all-MiniLM-L6-v2'"
+    )
+    task: str = Field(
+        ...,
+        description="Pipeline task, e.g. 'feature-extraction', 'text-generation', 'zero-shot-classification'",
+    )
+    device: Literal["cpu", "cuda", "auto"] = Field(
+        default="cpu", description="Device to load the model on"
+    )
 
 
 class HFLoadResponse(BaseModel):

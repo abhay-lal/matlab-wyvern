@@ -8,12 +8,19 @@ from pydantic import BaseModel, Field
 
 
 class RagLoadRequest(BaseModel):
-    collection_id: str = Field(..., description="User-defined name for this document collection")
+    collection_id: str = Field(
+        ..., description="User-defined name for this document collection"
+    )
     path: str = Field(..., description="Absolute path to a folder or single file")
-    file_types: list[str] = Field(default=["pdf", "txt", "md"], description="File extensions to index")
+    file_types: list[str] = Field(
+        default=["pdf", "txt", "md"], description="File extensions to index"
+    )
     chunk_size: int = Field(default=500, ge=50, le=8000)
     chunk_overlap: int = Field(default=50, ge=0, le=500)
-    embedding_model: str = Field(default="all-MiniLM-L6-v2", description="Sentence-transformers model for embeddings")
+    embedding_model: str = Field(
+        default="all-MiniLM-L6-v2",
+        description="Sentence-transformers model for embeddings",
+    )
 
 
 class RagLoadResponse(BaseModel):

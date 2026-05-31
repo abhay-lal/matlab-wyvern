@@ -27,7 +27,9 @@ def _agents(request: Request):
 
 
 @router.post("/create", response_model=AgentCreateResponse)
-async def create_agent(body: AgentCreateRequest, request: Request) -> AgentCreateResponse:
+async def create_agent(
+    body: AgentCreateRequest, request: Request
+) -> AgentCreateResponse:
     """Define a new LangGraph agent with tools and optional memory."""
     try:
         _agents(request).create(

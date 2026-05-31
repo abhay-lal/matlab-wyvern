@@ -35,6 +35,12 @@ class RagManager:
 
         Returns the number of chunks indexed.
         """
+        resolved = Path(path)
+        if not resolved.exists():
+            raise FileNotFoundError(
+                f"Path '{path}' does not exist or is not accessible."
+            )
+
         from langchain_community.document_loaders import (
             DirectoryLoader,
             TextLoader,
@@ -44,10 +50,6 @@ class RagManager:
         from langchain.text_splitter import RecursiveCharacterTextSplitter
         from langchain_community.vectorstores import FAISS
         from langchain_community.embeddings import HuggingFaceEmbeddings
-
-        resolved = Path(path)
-        if not resolved.exists():
-            raise FileNotFoundError(f"Path '{path}' does not exist or is not accessible.")
 
         documents = []
         loader_map = {
@@ -78,7 +80,9 @@ class RagManager:
                     logger.warning("Failed to load .%s files from %s", ext, path)
 
         if not documents:
-            raise ValueError(f"No documents found at '{path}' with file types {file_types}.")
+            raise ValueError(
+                f"No documents found at '{path}' with file types {file_types}."
+            )
 
         splitter = RecursiveCharacterTextSplitter(
             chunk_size=chunk_size,
@@ -136,10 +140,11 @@ class RagManager:
 
         Returns dict with keys: answer, sources, chunks_used.
         """
+        vs = self._get_vectorstore(collection_id)
+
         from langchain.chains import RetrievalQA
         from langchain_openai import ChatOpenAI
 
-        vs = self._get_vectorstore(collection_id)
         retriever = vs.as_retriever(search_kwargs={"k": top_k})
 
         effective_key = api_key or os.environ.get("OPENAI_API_KEY", "")

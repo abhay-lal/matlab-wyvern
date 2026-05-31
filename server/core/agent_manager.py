@@ -21,6 +21,7 @@ def _build_builtin_tools() -> dict[str, Any]:
     def calculator(expression: str) -> str:
         """Evaluate a mathematical expression and return the result."""
         import math  # noqa: PLC0415
+
         try:
             safe_globals = {"__builtins__": {}, "math": math}
             result = eval(expression, safe_globals)  # noqa: S307
@@ -61,7 +62,7 @@ class _AgentEntry:
 
     def run(self, message: str, context: dict[str, Any] | None) -> dict[str, Any]:
         """Invoke the agent synchronously and return response + metadata."""
-        from langchain_core.messages import HumanMessage, SystemMessage
+        from langchain_core.messages import HumanMessage
 
         human_msg = HumanMessage(content=message)
         config = {"configurable": {"thread_id": self._thread_id}} if self.memory else {}
@@ -81,7 +82,9 @@ class _AgentEntry:
         for msg in messages:
             if hasattr(msg, "tool_calls") and msg.tool_calls:
                 for tc in msg.tool_calls:
-                    steps.append({"tool": tc.get("name", ""), "input": tc.get("args", {})})
+                    steps.append(
+                        {"tool": tc.get("name", ""), "input": tc.get("args", {})}
+                    )
 
         # Token usage from last AIMessage if available
         if messages:
@@ -115,6 +118,7 @@ class _AgentEntry:
     def reset(self) -> None:
         """Clear the conversation memory by rotating the thread ID."""
         import uuid
+
         self._thread_id = f"{self.agent_id}_{uuid.uuid4().hex[:8]}"
 
     # ------------------------------------------------------------------
@@ -191,11 +195,13 @@ class _AgentEntry:
 
         if "claude" in model_lower or "anthropic" in model_lower:
             from langchain_anthropic import ChatAnthropic
+
             key = api_key or os.environ.get("ANTHROPIC_API_KEY")
             return ChatAnthropic(model=model, api_key=key)  # type: ignore[arg-type]
 
         # Default: OpenAI-compatible
         from langchain_openai import ChatOpenAI
+
         key = api_key or os.environ.get("OPENAI_API_KEY")
         return ChatOpenAI(model=model, api_key=key)  # type: ignore[arg-type]
 
@@ -226,7 +232,9 @@ class AgentManager:
             memory=memory,
         )
 
-    def run(self, agent_id: str, message: str, context: dict[str, Any] | None) -> dict[str, Any]:
+    def run(
+        self, agent_id: str, message: str, context: dict[str, Any] | None
+    ) -> dict[str, Any]:
         return self._get(agent_id).run(message, context)
 
     def stream(self, agent_id: str, message: str):

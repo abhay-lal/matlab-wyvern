@@ -24,6 +24,9 @@ import pytest_asyncio
 from httpx import ASGITransport, AsyncClient
 
 from server.main import app
+from server.core.agent_manager import AgentManager
+from server.core.rag_manager import RagManager
+from server.core.hf_manager import HFManager
 
 SERVER_URL = "http://localhost:5173"
 SERVER_MAIN = Path(__file__).parent.parent.parent / "server" / "main.py"
@@ -33,11 +36,24 @@ SERVER_MAIN = Path(__file__).parent.parent.parent / "server" / "main.py"
 
 @pytest_asyncio.fixture
 async def client():
-    """Async HTTPX client wired directly to the FastAPI app (no real port)."""
+    """Async HTTPX client wired directly to the FastAPI app (no real port).
+
+    The ASGI transport bypasses the lifespan context manager, so we
+    manually attach the singleton managers to ``app.state`` here so that
+    routers can access them during tests.
+    """
+    app.state.agent_manager = AgentManager()
+    app.state.rag_manager = RagManager()
+    app.state.hf_manager = HFManager()
+
     async with AsyncClient(
         transport=ASGITransport(app=app), base_url="http://test"
     ) as ac:
         yield ac
+
+    # Cleanup
+    app.state.hf_manager.cleanup()
+    app.state.rag_manager.cleanup()
 
 
 # ─── Live subprocess server (integration tests only) ─────────────────────────
