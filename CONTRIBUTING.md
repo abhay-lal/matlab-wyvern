@@ -3,7 +3,7 @@
 Welcome, and thank you for your interest in contributing to Wyvern! Whether you're fixing a bug,
 proposing a new feature, improving documentation, or sharing an example, every contribution helps
 make Wyvern better for the MATLAB community. Start by browsing the
-[open issues](https://github.com/abhay-lal/matlab-wyvern/issues) — especially those tagged
+[open issues](https://github.com/abhay-lal/matpy-wyvern/issues) — especially those tagged
 `good first issue`.
 
 ---
@@ -23,8 +23,8 @@ make Wyvern better for the MATLAB community. Start by browsing the
 ### 1. Fork and clone
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/matlab-wyvern.git
-cd matlab-wyvern
+git clone https://github.com/YOUR_USERNAME/matpy-wyvern.git
+cd matpy-wyvern
 ```
 
 ### 2. Install Python dependencies
@@ -60,7 +60,7 @@ pytest tests/python/ -v
 ### 6. Run the MATLAB tests
 
 ```matlab
-% Run from the matlab-wyvern root directory
+% Run from the matpy-wyvern root directory
 runtests('tests/matlab/')
 ```
 
@@ -75,7 +75,7 @@ run('tests/run_all_tests.m')
 ## Project Structure
 
 ```
-matlab-wyvern/
+matpy-wyvern/
 ├── server/                 Python FastAPI backend (invisible to end users)
 │   ├── main.py             App entry point + /health endpoint
 │   ├── requirements.txt    Pinned Python dependencies
@@ -175,7 +175,7 @@ Commits that introduce a breaking API change must include `BREAKING CHANGE:` in 
 
 ## Reporting Bugs
 
-Open a [GitHub Issue](https://github.com/abhay-lal/matlab-wyvern/issues/new?template=bug_report.md)
+Open a [GitHub Issue](https://github.com/abhay-lal/matpy-wyvern/issues/new?template=bug_report.md)
 using the bug report template. Include:
 
 - Your MATLAB version (`version` in the MATLAB command window)

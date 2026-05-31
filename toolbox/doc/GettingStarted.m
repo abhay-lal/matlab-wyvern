@@ -3,7 +3,7 @@
 % Run it top-to-bottom after setting your API key in server/.env.
 %
 % PREREQUISITE: Run the following once before this script:
-%   addpath(genpath('<path-to-matlab-wyvern>/toolbox'))
+%   addpath(genpath('<path-to-matpy-wyvern>/toolbox'))
 %   wyvern.setup(apiKey="your-openai-key")
 
 %% Section 1: Setup and Health Check

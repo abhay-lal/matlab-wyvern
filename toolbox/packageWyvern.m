@@ -1,16 +1,16 @@
 function packageWyvern()
 % PACKAGEWYVERN  Build the Wyvern.mltbx toolbox package
 %
-%   Run this script from the matlab-wyvern root directory in MATLAB to
+%   Run this script from the matpy-wyvern root directory in MATLAB to
 %   produce Wyvern.mltbx, suitable for MATLAB File Exchange submission
 %   and Add-On Explorer.
 %
 %   Requirements:
 %     - MATLAB R2024a or later
-%     - Run from the matlab-wyvern root directory
+%     - Run from the matpy-wyvern root directory
 %
 %   Usage:
-%     cd /path/to/matlab-wyvern
+%     cd /path/to/matpy-wyvern
 %     addpath(genpath('toolbox'))
 %     packageWyvern()
 

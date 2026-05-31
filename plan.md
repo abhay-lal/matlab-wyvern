@@ -5,7 +5,7 @@
 
 ## ROLE & GOAL
 
-You are an expert software engineer with deep knowledge of both MATLAB toolbox development and Python LLM/agent frameworks (LangChain, LangGraph, HuggingFace Transformers). Your goal is to build **Wyvern** (`matlab-wyvern`) — an open-source MATLAB toolbox that gives MATLAB users transparent access to Python's LLM ecosystem (LangChain, LangGraph, HuggingFace) without them ever needing to write Python or leave MATLAB.
+You are an expert software engineer with deep knowledge of both MATLAB toolbox development and Python LLM/agent frameworks (LangChain, LangGraph, HuggingFace Transformers). Your goal is to build **Wyvern** (`matpy-wyvern`) — an open-source MATLAB toolbox that gives MATLAB users transparent access to Python's LLM ecosystem (LangChain, LangGraph, HuggingFace) without them ever needing to write Python or leave MATLAB.
 
 The user stays entirely in MATLAB. All Python complexity is hidden behind clean, MATLAB-native function calls that feel like any other MathWorks toolbox.
 
@@ -27,14 +27,14 @@ The official `llms-with-matlab` add-on (GitHub: `matlab-deep-learning/llms-with-
 **Do not re-implement these.** Wyvern fills the gap — stateful LangGraph agents, HuggingFace model access, multi-agent orchestration, and persistent memory — things the official add-on does not cover.
 
 ### Distribution target
-The toolbox will be open-sourced on GitHub as `matlab-wyvern` and listed on MATLAB File Exchange so it appears in MATLAB's Add-On Explorer. Follow MathWorks' official toolbox design best practices (`github.com/mathworks/toolboxdesign`).
+The toolbox will be open-sourced on GitHub as `matpy-wyvern` and listed on MATLAB File Exchange so it appears in MATLAB's Add-On Explorer. Follow MathWorks' official toolbox design best practices (`github.com/mathworks/toolboxdesign`).
 
 ---
 
 ## FULL REPOSITORY STRUCTURE TO BUILD
 
 ```
-matlab-wyvern/
+matpy-wyvern/
 │
 ├── README.md
 ├── LICENSE                          (MIT)

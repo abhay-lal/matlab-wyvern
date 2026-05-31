@@ -1,8 +1,8 @@
 % run_all_tests.m — Run the complete Wyvern test suite
 %
-%   Run from the matlab-wyvern root directory in MATLAB after wyvern.setup():
+%   Run from the matpy-wyvern root directory in MATLAB after wyvern.setup():
 %
-%       cd /path/to/matlab-wyvern
+%       cd /path/to/matpy-wyvern
 %       addpath(genpath('toolbox'))
 %       run('tests/run_all_tests.m')
 %

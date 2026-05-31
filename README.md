@@ -5,7 +5,7 @@
 [![View on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/)
 [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Tests](https://github.com/abhay-lal/matlab-wyvern/actions/workflows/test.yml/badge.svg)](https://github.com/abhay-lal/matlab-wyvern/actions/workflows/test.yml)
+[![Tests](https://github.com/abhay-lal/matpy-wyvern/actions/workflows/test.yml/badge.svg)](https://github.com/abhay-lal/matpy-wyvern/actions/workflows/test.yml)
 
 ---
 
@@ -40,11 +40,11 @@ Search for **Wyvern** in the Add-On Explorer, or double-click `Wyvern.mltbx` fro
 Alternatively, clone and add to path manually:
 
 ```bash
-git clone https://github.com/abhay-lal/matlab-wyvern.git
+git clone https://github.com/abhay-lal/matpy-wyvern.git
 ```
 
 ```matlab
-addpath(genpath('matlab-wyvern/toolbox'))
+addpath(genpath('matpy-wyvern/toolbox'))
 ```
 
 **Step 2** — Run one-time setup
@@ -205,7 +205,7 @@ project.
 
 Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup, code style
 guidelines, branch naming, and the pull request process. Browse
-[open issues](https://github.com/abhay-lal/matlab-wyvern/issues) for ideas — especially those tagged
+[open issues](https://github.com/abhay-lal/matpy-wyvern/issues) for ideas — especially those tagged
 `good first issue`.
 
 ---

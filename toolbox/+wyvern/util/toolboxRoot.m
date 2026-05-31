@@ -1,5 +1,5 @@
 function root = toolboxRoot()
-% WYVERN.UTIL.TOOLBOXROOT  Return the absolute path to the matlab-wyvern root
+% WYVERN.UTIL.TOOLBOXROOT  Return the absolute path to the matpy-wyvern root
 %
 %   root = wyvern.util.toolboxRoot()
 %
@@ -9,5 +9,5 @@ function root = toolboxRoot()
     thisDir  = fileparts(mfilename('fullpath'));   % .../toolbox/+wyvern/util
     wyvernDir = fileparts(thisDir);               % .../toolbox/+wyvern
     toolboxDir = fileparts(wyvernDir);            % .../toolbox
-    root = fileparts(toolboxDir);                 % .../matlab-wyvern
+    root = fileparts(toolboxDir);                 % .../matpy-wyvern
 end
